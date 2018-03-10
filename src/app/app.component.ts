@@ -15,6 +15,7 @@ export class AppComponent implements AfterViewInit {
   wallSubscription: Subscription;
   moveWallSubscription: Subscription;
   moveBackgroundSubscription: Subscription;
+  scoreSubscription: Subscription;
 
   @ViewChild('bird') bird: ElementRef;
 
@@ -22,6 +23,7 @@ export class AppComponent implements AfterViewInit {
   @select() readonly birdPosition$: Observable<any>;
   @select() readonly isEnd$: Observable<boolean>;
   @select() readonly backgroundX$: Observable<number>;
+  @select() readonly score$: Observable<number>;
 
   constructor(private action: FlappyBirdActions,
               private renderer2: Renderer2,
@@ -110,6 +112,8 @@ export class AppComponent implements AfterViewInit {
       .subscribe(() => this.moveWall());
     this.moveBackgroundSubscription = Observable.interval(20)
       .subscribe(() => this.action.moveBackground());
+    this.scoreSubscription = Observable.interval(1000)
+      .subscribe(() => this.action.scoreIncrement());
   }
 
   end = (): void => {
@@ -124,6 +128,9 @@ export class AppComponent implements AfterViewInit {
     }
     if (this.moveBackgroundSubscription) {
       this.moveBackgroundSubscription.unsubscribe();
+    }
+    if (this.scoreSubscription) {
+      this.scoreSubscription.unsubscribe();
     }
   }
 

@@ -16,6 +16,7 @@ export function rootReducer(
           birdPosition: lastState.birdPosition,
           isEnd: false,
           backgroundX: lastState.backgroundX,
+          score: lastState.score,
         };
       case FlappyBirdActions.SET_AY:
       return {
@@ -26,6 +27,7 @@ export function rootReducer(
           birdPosition: lastState.birdPosition,
           isEnd: false,
           backgroundX: lastState.backgroundX,
+          score: lastState.score,
         };
       case FlappyBirdActions.SET_VY:
       return {
@@ -36,6 +38,7 @@ export function rootReducer(
           birdPosition: lastState.birdPosition,
           isEnd: false,
           backgroundX: lastState.backgroundX,
+          score: lastState.score,
         };
       case FlappyBirdActions.SET_Y:
       return {
@@ -46,6 +49,7 @@ export function rootReducer(
           birdPosition: {top: `${(action as NumberAction).payload}px`},
           isEnd: false,
           backgroundX: lastState.backgroundX,
+          score: lastState.score,
         };
       case FlappyBirdActions.MOVE_BIRD:
       const newVy = lastState.vy + lastState.ay;
@@ -65,6 +69,7 @@ export function rootReducer(
           birdPosition:  {top: `${newY}px`},
           isEnd: newIsEnd,
           backgroundX: lastState.backgroundX,
+          score: lastState.score,
         };
       case FlappyBirdActions.FLY:
       const minusVy = lastState.vy - 10;
@@ -76,9 +81,9 @@ export function rootReducer(
           birdPosition: lastState.birdPosition,
           isEnd: false,
           backgroundX: lastState.backgroundX,
+          score: lastState.score,
         };
-      case FlappyBirdActions.MOVE_BACKGROUND:
-      const newBackgroundX = lastState.backgroundX - 10;
+      case FlappyBirdActions.SCORE_INCREMENT:
       return {
           maxY: lastState.maxY,
           ay: lastState.ay,
@@ -86,7 +91,8 @@ export function rootReducer(
           y: lastState.y,
           birdPosition: lastState.birdPosition,
           isEnd: false,
-          backgroundX: newBackgroundX,
+          backgroundX: lastState.backgroundX,
+          score: lastState.score += 1,
         };
     default:
       return lastState;

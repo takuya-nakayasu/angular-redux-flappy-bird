@@ -14,6 +14,7 @@ export class FlappyBirdActions {
   static MOVE_BIRD = 'MOVE_BIRD';
   static FLY = 'FLY';
   static MOVE_BACKGROUND = 'MOVE_BACKGROUND';
+  static SCORE_INCREMENT = 'SCORE_INCREMENT';
 
   @dispatch() setMaxY = (maxY: number): NumberAction => ({
     type: FlappyBirdActions.SET_MAX_Y,
@@ -53,6 +54,12 @@ export class FlappyBirdActions {
 
   @dispatch() moveBackground = (): VoidAction => ({
     type: FlappyBirdActions.MOVE_BACKGROUND,
+    payload: undefined,
+    meta: undefined
+  })
+
+  @dispatch() scoreIncrement = (): VoidAction => ({
+    type: FlappyBirdActions.SCORE_INCREMENT,
     payload: undefined,
     meta: undefined
   })

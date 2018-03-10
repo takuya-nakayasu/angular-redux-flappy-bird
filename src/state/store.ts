@@ -6,6 +6,7 @@ export interface IAppState {
     birdPosition: {};
     isEnd: boolean;
     backgroundX: number;
+    score: number;
 }
 
 export const INITIAL_STATE: IAppState = {
@@ -16,4 +17,5 @@ export const INITIAL_STATE: IAppState = {
     birdPosition: {},
     isEnd: false,
     backgroundX: 0,
+    score: 0,
 };
