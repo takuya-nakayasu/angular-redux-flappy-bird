@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { NgRedux, NgReduxModule } from '@angular-redux/store';
+import { NgRedux, NgReduxModule, DevToolsExtension } from '@angular-redux/store';
 import { rootReducer } from '../state/reducer';
 import { INITIAL_STATE, IAppState } from '../state/store';
 import { FlappyBirdActions } from '../state/action';
@@ -23,8 +23,16 @@ import 'rxjs/Rx';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(ngRedux: NgRedux<IAppState>) {
-    ngRedux.configureStore(rootReducer,
-      INITIAL_STATE);
+  constructor(
+    ngRedux: NgRedux<IAppState>,
+    devTools: DevToolsExtension) { // <- add
+      const storeEnhancers = devTools.isEnabled() ? // <- add
+      [ devTools.enhancer() ] : // <-add
+      []; // <-add
+      ngRedux.configureStore(
+        rootReducer,
+        INITIAL_STATE,
+        [], // <- add
+        storeEnhancers);
   }
 }
