@@ -25,7 +25,7 @@ export function rootReducer(
           vy: lastState.vy,
           y: lastState.y,
           birdPosition: lastState.birdPosition,
-          isEnd: false,
+          isEnd: lastState.isEnd,
           backgroundX: lastState.backgroundX,
           score: lastState.score,
         };
@@ -36,7 +36,7 @@ export function rootReducer(
           vy: (action as NumberAction).payload,
           y: lastState.y,
           birdPosition: lastState.birdPosition,
-          isEnd: false,
+          isEnd: lastState.isEnd,
           backgroundX: lastState.backgroundX,
           score: lastState.score,
         };
@@ -47,7 +47,7 @@ export function rootReducer(
           vy: lastState.vy,
           y: (action as NumberAction).payload,
           birdPosition: {top: `${(action as NumberAction).payload}px`},
-          isEnd: false,
+          isEnd: lastState.isEnd,
           backgroundX: lastState.backgroundX,
           score: lastState.score,
         };
@@ -79,7 +79,7 @@ export function rootReducer(
           vy: minusVy,
           y: lastState.y,
           birdPosition: lastState.birdPosition,
-          isEnd: false,
+          isEnd: lastState.isEnd,
           backgroundX: lastState.backgroundX,
           score: lastState.score,
         };
@@ -90,9 +90,20 @@ export function rootReducer(
           vy: lastState.vy,
           y: lastState.y,
           birdPosition: lastState.birdPosition,
-          isEnd: false,
+          isEnd: lastState.isEnd,
           backgroundX: lastState.backgroundX,
           score: lastState.score += 1,
+        };
+      case FlappyBirdActions.GAME_OVER:
+      return {
+          maxY: lastState.maxY,
+          ay: lastState.ay,
+          vy: lastState.vy,
+          y: lastState.y,
+          birdPosition: lastState.birdPosition,
+          isEnd: true,
+          backgroundX: lastState.backgroundX,
+          score: lastState.score,
         };
     default:
       return lastState;

@@ -94,7 +94,7 @@ export class AppComponent implements AfterViewInit {
       const wallRect = wallList[i].getBoundingClientRect();
       if (wallRect.left < birdRect.right && birdRect.left < wallRect.right) {
         if (wallRect.top < birdRect.bottom && birdRect.top < wallRect.bottom) {
-          this.end();
+          this.action.gameOver();
         }
       }
     }

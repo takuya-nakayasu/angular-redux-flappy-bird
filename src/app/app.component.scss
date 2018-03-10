@@ -24,3 +24,25 @@
     color: white;
     font-size: 5vw;
 }
+
+.score-board {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 40%;
+    height: 30%;
+    z-index: 100;
+    background-color: #2274A5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .score-text {
+        color: #DD7373;
+        align-self: center;
+        font: bold;
+        font-size: 7vw;
+    }
+}

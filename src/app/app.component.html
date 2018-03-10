@@ -2,3 +2,7 @@
  class="bird" src="/assets/images/bird.png">
 
  <div class="score">{{score$ | async}}</div>
+
+ <div *ngIf="isEnd$ | async" class="score-board">
+     <div class="score-text">Score:{{score$ | async}}</div>
+</div>
