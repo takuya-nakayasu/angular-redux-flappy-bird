@@ -104,11 +104,11 @@ export class AppComponent implements AfterViewInit {
         this.action.moveBird();
         this.checkCollision();
       });
-    this.wallSubscription = Observable.interval(3000)
+    this.wallSubscription = Observable.interval(2000)
       .subscribe(() => this.setWall());
-    this.moveWallSubscription = Observable.interval(30)
+    this.moveWallSubscription = Observable.interval(20)
       .subscribe(() => this.moveWall());
-    this.moveBackgroundSubscription = Observable.interval(30)
+    this.moveBackgroundSubscription = Observable.interval(20)
       .subscribe(() => this.action.moveBackground());
   }
 
