@@ -31,22 +31,35 @@ export class AppComponent implements AfterViewInit {
             ) {}
 
   ngAfterViewInit() {
+    // 初期処理
     this.init();
+
+    // clickイベントを検知する
     Observable
       .fromEvent(document, 'click')
       .subscribe(_ => this.action.fly());
+
+    // isEnd$が更新されると呼び出し
     this.isEnd$
       .filter(value => value)
       .subscribe(_ => this.end());
+
+    // backgroundX$が更新されると、背景を動かす
     this.backgroundX$
       .subscribe(
         value => this.el.nativeElement.style.backgroundPosition  = `${value}px`);
   }
 
+  /**
+   * 壁を設置する
+   *
+   * @memberof AppComponent
+   */
   setWall = (): void => {
     const maxX = window.innerWidth;
     const pos = 20 + Math.random() * 60;
 
+    // 上下に配置する壁になるdiv要素を作成
     const wallTop = this.renderer2.createElement('div');
     const wallBottom = this.renderer2.createElement('div');
 
