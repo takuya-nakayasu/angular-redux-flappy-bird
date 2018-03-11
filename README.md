@@ -1,4 +1,4 @@
-Angular Redux FlappyBird ([Try It](https://l08084.github.io/angular-redux-flappy-bird/))
+Angular Redux FlappyBird
 =========================================================================
 
 ![Angular Redux FlappyBird](resouces/flappybird.gif)
