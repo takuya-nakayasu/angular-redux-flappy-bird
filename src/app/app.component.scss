@@ -2,6 +2,7 @@
     height: 10%;
     position: absolute;
     left: 10%;
+    user-select: none;
 }
 
 .wall {
@@ -9,6 +10,7 @@
     width: 10%;
     height: 100%;
     position: absolute;
+    user-select: none;
 }
 
 .score {
@@ -23,6 +25,7 @@
     z-index: 10;
     color: white;
     font-size: 5vw;
+    user-select: none;
 }
 
 .score-board {
@@ -39,10 +42,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    user-select: none;
     .score-text {
         color: #DD7373;
         align-self: center;
         font: bold;
         font-size: 7vw;
+        user-select: none;
     }
 }
